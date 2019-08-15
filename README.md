@@ -34,4 +34,4 @@ docker run -d --name kong --network=local-kong-net  -e "KONG_DATABASE=postgres" 
 
 
 
-![Screenshot](kong-default-postman.PNG)
+![Screenshot](https://github.com/kametepe/kong-api-gateway-with-docker/blob/master/kong-postman-default.PNG)
