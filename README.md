@@ -25,7 +25,7 @@ docker run -d --name kong-postgres-database --network=local-kong-net  -p 25432:5
 ```
 docker run --rm --network=local-kong-net -e "KONG_DATABASE=postgres"  -e "KONG_PG_HOST=kong-postgres-database" -e "KONG_CASSANDRA_CONTACT_POINTS=kong-postgres-database"  kong:latest kong migrations bootstrap
 ```
-> kong migrations up IS NOW  kong migrations bootstrap
+> **kong migrations up** IS NOW  **kong migrations bootstrap**
 
 5. Start a Kong container connected to the postgres and cassandra databases by  network local-kong-net
 ```
