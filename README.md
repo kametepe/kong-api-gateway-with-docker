@@ -31,7 +31,7 @@ docker run --rm --network=local-kong-net -e "KONG_DATABASE=postgres"  -e "KONG_P
 ```
 docker run -d --name kong --network=local-kong-net  -e "KONG_DATABASE=postgres"  -e "KONG_PG_HOST=kong-postgres-database"  -e "KONG_CASSANDRA_CONTACT_POINTS=kong-cassandra-database"  -e "KONG_PROXY_ACCESS_LOG=/dev/stdout"   -e "KONG_ADMIN_ACCESS_LOG=/dev/stdout"   -e "KONG_PROXY_ERROR_LOG=/dev/stderr"  -e "KONG_ADMIN_ERROR_LOG=/dev/stderr" -e "KONG_ADMIN_LISTEN=0.0.0.0:8001, 0.0.0.0:8444 ssl"  -p 8000:8000 -p 8443:8443  -p 8001:8001  -p 8444:8444 kong:latest
 ```
-
+6. Call Kong from Postman on port 8001
 
 
 ![Screenshot](https://github.com/kametepe/kong-api-gateway-with-docker/blob/master/kong-postman-default.PNG)
