@@ -1,4 +1,4 @@
-# kong-api-gateway-with-docker
+# Kong Api Gateway with Docker
 Kong api gateway with docker
 
 ## The first steps with KONG using Docker:
@@ -7,7 +7,7 @@ Kong api gateway with docker
 ```
 docker network create local-kong-net
 ```
-
+> call the network what you want but you will have to stick to it.
 
 2. Create a container for Cassandra DB:
 ```
@@ -19,13 +19,13 @@ docker run -d --name kong-cassandra-database --network=local-kong-net  -p 9042:9
 ```
 docker run -d --name kong-postgres-database --network=local-kong-net  -p 25432:5432  -e "POSTGRES_USER=kong"  -e "POSTGRES_DB=kong"  postgres:9.6
 ```
-
+> I use the port 25432 since port 5432 was giving me  binding issue.
 
 4. Run Kong Migrations 
 ```
 docker run --rm --network=local-kong-net -e "KONG_DATABASE=postgres"  -e "KONG_PG_HOST=kong-postgres-database" -e "KONG_CASSANDRA_CONTACT_POINTS=kong-postgres-database"  kong:latest kong migrations bootstrap
 ```
-
+> kong migrations up IS NOW  kong migrations bootstrap
 
 5. Start a Kong container connected to the postgres and cassandra databases by  network local-kong-net
 ```
